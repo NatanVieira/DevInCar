@@ -1,0 +1,15 @@
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\bin\Debug\net6.0\DevInCar.exe
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\bin\Debug\net6.0\DevInCar.deps.json
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\bin\Debug\net6.0\DevInCar.runtimeconfig.json
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\bin\Debug\net6.0\DevInCar.dll
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\bin\Debug\net6.0\DevInCar.pdb
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.csproj.AssemblyReference.cache
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.AssemblyInfoInputs.cache
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.AssemblyInfo.cs
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.csproj.CoreCompileInputs.cache
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.dll
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\refint\DevInCar.dll
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.pdb
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\DevInCar.genruntimeconfig.cache
+C:\Users\natanael.vieira\Desktop\DIH\DevInCar\DevInCar\obj\Debug\net6.0\ref\DevInCar.dll
