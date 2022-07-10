@@ -64,13 +64,13 @@ public static class Cadastro {
         System.Console.Write("Valor: ");
         veiculo.Valor = Convert.ToDecimal(Console.ReadLine());
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.WriteLine("Placa: ");
+        System.Console.Write("Placa: ");
         veiculo.Placa = System.Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.WriteLine("Potência: ");
+        System.Console.Write("Potência: ");
         veiculo.Potencia = Convert.ToInt32(System.Console.ReadLine());
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.WriteLine("Data de Fabricação (dd/MM/AAAA): ");
+        System.Console.Write("Data de Fabricação (dd/MM/AAAA): ");
         veiculo.DataDeFabricacao = Convert.ToDateTime(System.Console.ReadLine());
     }
     public static void NovoCarro(Carro carro,string tipoVeiculo){

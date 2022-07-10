@@ -56,4 +56,33 @@ public static class Desenho {
         System.Console.WriteLine($"Erro ao cadastrar!!! {mensagem}. Tente novamente.");
         Thread.Sleep(1000);
     }
+
+    public static void VendaVeiculoCabecalho(){
+        System.Console.Clear();
+        System.Console.WriteLine("Venda de veiculo");
+    }
+    
+    public static void VeiculoInexistente(){
+        System.Console.Clear();
+        System.Console.WriteLine("Veículo inexistente, escolha outro...");
+        Thread.Sleep(1000);
+    }
+
+    public static void ErroAoVender(string nomeVeiculo){
+        System.Console.Clear();
+        System.Console.WriteLine("Erro ao cadastrar venda de carro, tente novamente...");
+        Thread.Sleep(1000);
+    }
+
+    public static void VendaVeiculoComSucesso(string nomeVeiculo){
+        System.Console.Clear();
+        System.Console.WriteLine($"{nomeVeiculo} vendido com sucesso!!");
+        Thread.Sleep(1000);
+    }
+
+    public static void VeiculoJaVendido(string nomeVeiculo){
+        System.Console.Clear();
+        System.Console.WriteLine($"{nomeVeiculo} já foi vendido, escolha outro veículo.");
+        Thread.Sleep(1000);
+    }
 }

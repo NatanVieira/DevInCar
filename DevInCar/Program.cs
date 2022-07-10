@@ -16,6 +16,7 @@ public class Program {
                     Cadastro.novoVeiculo(veiculos);
                     break;
                 case "2":
+                    Venda.VendaVeiculo(veiculos);
                     break;
                 case "3":
                     break;
