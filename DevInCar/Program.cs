@@ -1,12 +1,28 @@
 ﻿using DevInCar.Models;
+using DevInCar.Utils;
 namespace DevInCar;
 
 public class Program {
 
     static void Main(string[] args)
     {
-        Veiculo v = new Veiculo("Azul",100.0M,"Opala",128,"AAA0000",DateTime.Now);
-
-        System.Console.WriteLine(v.ListarInformacoes());
+        List<Veiculo> veiculos = new List<Veiculo>();
+        var escolha = "1";
+        do{
+            Desenho.DesenhaMenuInicial();
+            escolha = System.Console.ReadLine();
+            switch(escolha){
+                case "1":
+                    Cadastro.novoVeiculo(veiculos);
+                    break;
+                case "2":
+                    break;
+                case "3":
+                    break;
+                default:
+                    Desenho.FinalizaPrograma();
+                    break;
+            }
+        }while(escolha == "1" || escolha == "2" || escolha == "3");
     }
 }

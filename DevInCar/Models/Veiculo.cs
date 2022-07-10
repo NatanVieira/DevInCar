@@ -11,9 +11,16 @@ public class Veiculo {
     private string cpf;
 
     private string cor;
-
     private int potencia;
     
+    public Veiculo(){
+        this.nome = "";
+        this.placa = "";
+        this.cor = "";
+        this.valor = 0M;
+        this.numeroChassi = new Random().Next();
+        this.cpf = "0";
+    }
     public Veiculo (string cor, decimal valor, string nome, int potencia, string placa, DateTime dataDeFabricacao){
         this.cor = cor;
         this.valor = valor;
@@ -34,5 +41,18 @@ public class Veiculo {
         this.cor = cor;
         this.valor = valor;
     }
-
+    public string Nome {get{return nome;}
+                        set{nome = value;}}
+    public DateTime DataDeFabricacao {get{return dataDeFabricacao;}
+                                      set{dataDeFabricacao = value;}}
+    public string Placa {get{return placa;}
+                         set{placa = value;}}
+    public decimal Valor {get{return valor;}
+                          set{valor = value;}}
+    public string Cpf {get{return cpf;}
+                       set{cpf = value;}}
+    public string Cor {get{return cor;}
+                       set{cor = value;}}
+    public int Potencia {get{return potencia;}
+                        set{potencia = value;}}
 }
