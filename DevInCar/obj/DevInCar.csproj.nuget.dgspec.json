@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {}
+    "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {}
   },
   "projects": {
-    "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {
+    "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj",
+        "projectUniqueName": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj",
         "projectName": "DevInCar",
-        "projectPath": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj",
+        "projectPath": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj",
         "packagesPath": "C:\\Users\\natanael.vieira\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\obj\\",
+        "outputPath": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

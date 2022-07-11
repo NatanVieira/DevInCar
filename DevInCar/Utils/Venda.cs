@@ -3,7 +3,7 @@ namespace DevInCar.Utils;
 
 public static class Venda {
 
-    public static void VendaVeiculo(List<Veiculo> veiculos){
+    public static void VendaVeiculo(List<Veiculo> veiculos, List<Transferencia> transferencias){
         Desenho.VendaVeiculoCabecalho();
         System.Console.Write("Nome do veículo: ");
         string nomeVeiculoVenda = System.Console.ReadLine();
@@ -20,6 +20,7 @@ public static class Venda {
                     transferencia.ValorCompra = Convert.ToDecimal(System.Console.ReadLine());
                     transferencia.DataCompra = DateTime.Now;
                     transferencia.VeiculoCompra = veiculo;
+                    transferencias.Add(transferencia);
                     Desenho.VendaVeiculoComSucesso(veiculo.Nome);
                 }
                 catch(Exception ex){
