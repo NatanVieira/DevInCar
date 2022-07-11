@@ -36,23 +36,23 @@ public static class Desenho {
         Thread.Sleep(1000);
     }
 
-    public static void CadastroInfosCabecalho(string tipoVeiculo){
+    public static void CadastroInfosCabecalho(string? tipoVeiculo){
         System.Console.Clear();
-        if(tipoVeiculo.ToLower() == "carro")
+        if(tipoVeiculo?.ToLower() == "carro")
             System.Console.WriteLine("Cadastro de novo carro");
         else
             System.Console.WriteLine($"Cadastro de nova {tipoVeiculo}");
     }
 
-    public static void VeiculoCadastradoComSucesso(string tipoVeiculo){
+    public static void VeiculoCadastradoComSucesso(string? tipoVeiculo){
         System.Console.Clear();
-        if(tipoVeiculo.ToLower() == "carro")
+        if(tipoVeiculo?.ToLower() == "carro")
             System.Console.WriteLine("Carro cadastrado com sucesso.");
         else
             System.Console.WriteLine($"{tipoVeiculo} cadastro com sucesso.");
         Thread.Sleep(1000);
     }
-    public static void ErroAoCadastrar(string mensagem){
+    public static void ErroAoCadastrar(string? mensagem){
         System.Console.Clear();
         System.Console.WriteLine($"Erro ao cadastrar!!! {mensagem}. Tente novamente.");
         Thread.Sleep(1000);
@@ -69,19 +69,19 @@ public static class Desenho {
         Thread.Sleep(1000);
     }
 
-    public static void ErroAoVender(string nomeVeiculo){
+    public static void ErroAoVender(string? nomeVeiculo){
         System.Console.Clear();
         System.Console.WriteLine("Erro ao cadastrar venda de carro, tente novamente...");
         Thread.Sleep(1000);
     }
 
-    public static void VendaVeiculoComSucesso(string nomeVeiculo){
+    public static void VendaVeiculoComSucesso(string? nomeVeiculo){
         System.Console.Clear();
         System.Console.WriteLine($"{nomeVeiculo} vendido com sucesso!!");
         Thread.Sleep(1000);
     }
 
-    public static void VeiculoJaVendido(string nomeVeiculo){
+    public static void VeiculoJaVendido(string? nomeVeiculo){
         System.Console.Clear();
         System.Console.WriteLine($"{nomeVeiculo} já foi vendido, escolha outro veículo.");
         Thread.Sleep(1000);
@@ -97,7 +97,7 @@ public static class Desenho {
         System.Console.WriteLine("0 - Voltar ao menu inicial");
     }
 
-    public static void ListagemVeiculosSecundaria(string tipoVeiculo){
+    public static void ListagemVeiculosSecundaria(string? tipoVeiculo){
         if(tipoVeiculo == "todos")
             tipoVeiculo = "veiculo";
         System.Console.Clear();

@@ -1,3 +1,4 @@
+using DevInCar.Excecoes;
 using DevInCar.Models;
 
 namespace DevInCar.Utils;
@@ -16,7 +17,7 @@ public class Armazenamento {
                             break;
                         case "MotoOuTriciculo":
                              MotoOuTriciculo moto = (MotoOuTriciculo)veiculo;
-                            sw.WriteLine($"Camionete;{moto.NumeroChassi.ToString()};{moto.DataDeFabricacao.ToShortDateString()};{moto.Nome};{moto.Placa};{moto.Valor.ToString()};{moto.Cpf};{moto.Cor};{moto.Potencia.ToString()};{moto.NumeroDeRodas.ToString()};");                           
+                            sw.WriteLine($"Moto;{moto.NumeroChassi.ToString()};{moto.DataDeFabricacao.ToShortDateString()};{moto.Nome};{moto.Placa};{moto.Valor.ToString()};{moto.Cpf};{moto.Cor};{moto.Potencia.ToString()};{moto.NumeroDeRodas.ToString()};");                           
                             break;
                         case "Camionete":
                             Camionete camionete = (Camionete)veiculo;
@@ -27,7 +28,7 @@ public class Armazenamento {
             }
         }
         catch(Exception ex){
-            System.Console.WriteLine("Erro ao salvar veiculos");
+            throw new SalvarDadosVeiculoException(ex.Message);
         }
     }
 
@@ -36,70 +37,84 @@ public class Armazenamento {
             this.VerificaPathArmazenamento();
             using (StreamWriter sw = new StreamWriter(this.pathArmazenamento + "\\transferencias.csv")){
                 transferencias.ForEach(transferencia => {
-                    sw.WriteLine($"{transferencia.DataCompra.ToShortDateString()};{transferencia.ValorCompra.ToString()};{transferencia.VeiculoCompra.NumeroChassi.ToString()};");
+                    sw.WriteLine($"{transferencia.DataCompra.ToShortDateString()};{transferencia.ValorCompra.ToString()};{transferencia.VeiculoCompra?.NumeroChassi.ToString()};");
                 });
             }
         }
         catch(Exception ex){
-            System.Console.WriteLine("Erro ao salvar transferencias");
+            throw new SalvarDadosTransferenciasException(ex.Message);
         }
     }
 
     private void VerificaPathArmazenamento(){
+        try{
         if(!Directory.Exists(this.pathArmazenamento))
             this.CriaPathArmazenamento();
+        }
+        catch(Exception ex){
+            throw new DiretorioInexistenteException($"{this.pathArmazenamento},{ex.Message}");
+        }
     }
     private void CriaPathArmazenamento(){
-        Directory.CreateDirectory(this.pathArmazenamento);
+        try{
+            Directory.CreateDirectory(this.pathArmazenamento);
+        }
+        catch(Exception ex){
+            throw new DiretorioCriacaoException($"{this.pathArmazenamento},{ex.Message}");
+        }
     }
 
     public void RecuperaDadosVeiculos(List<Veiculo> veiculos){
         try{
             this.VerificaPathArmazenamento();
             using(StreamReader sr = new StreamReader(this.pathArmazenamento + "\\veiculos.csv")){
-                string linha = sr.ReadLine();
-                string[] dados;
-                dados  = linha.Split(';');
-                switch(dados[0]){
-                    case "Carro":
-                        Carro carro = new Carro(dados[7],
-                                                Convert.ToDecimal(dados[5]),
-                                                dados[3],
-                                                Convert.ToInt32(dados[8]),
-                                                dados[4],
-                                                Convert.ToDateTime(dados[2]),
-                                                Convert.ToInt32(dados[9]),
-                                                Convert.ToBoolean(dados[10]));
-                        if(dados[6] != "")
-                            carro.VenderVeiculo(dados[6]);
-                        veiculos.Add(carro);
-                        break;
-                    case "Camionete":
-                        Camionete camionete = new Camionete(dados[7],
-                                                            Convert.ToDecimal(dados[5]),
-                                                            dados[3],
-                                                            Convert.ToInt32(dados[8]),
-                                                            dados[4],
-                                                            Convert.ToDateTime(dados[2]),
-                                                            Convert.ToInt32(dados[9]),
-                                                            Convert.ToDouble(dados[10]),
-                                                            dados[11]);
-                        if(dados[6] != "")
-                            camionete.VenderVeiculo(dados[6]);
-                        veiculos.Add(camionete);
-                        break;
-                    case "Moto":
-                        MotoOuTriciculo moto = new MotoOuTriciculo(dados[7],
-                                                                   Convert.ToDecimal(dados[5]),
-                                                                   dados[3],
-                                                                   Convert.ToInt32(dados[8]),
-                                                                   dados[4],
-                                                                   Convert.ToDateTime(dados[2]),
-                                                                   Convert.ToInt32(dados[9]));
-                        if(dados[6] != "")
-                            moto.VenderVeiculo(dados[6]);
-                        veiculos.Add(moto);
-                        break;
+                string? linha;
+                while((linha = sr.ReadLine()) != null){
+                    string[] dados;
+                        dados  = linha.Split(';');
+                        switch(dados[0]){
+                            case "Carro":
+                                Carro carro = new Carro(dados[7],
+                                                        Convert.ToDecimal(dados[5]),
+                                                        dados[3],
+                                                        Convert.ToInt32(dados[8]),
+                                                        dados[4],
+                                                        Convert.ToDateTime(dados[2]),
+                                                        Convert.ToInt32(dados[9]),
+                                                        Convert.ToBoolean(dados[10]));
+                                if(dados[6] != "0")
+                                    carro.VenderVeiculo(dados[6]);
+                                veiculos.Add(carro);
+                                break;
+                            case "Camionete":
+                                Camionete camionete = new Camionete(dados[7],
+                                                                    Convert.ToDecimal(dados[5]),
+                                                                    dados[3],
+                                                                    Convert.ToInt32(dados[8]),
+                                                                    dados[4],
+                                                                    Convert.ToDateTime(dados[2]),
+                                                                    Convert.ToInt32(dados[9]),
+                                                                    Convert.ToDouble(dados[11]),
+                                                                    dados[10]);
+                                if(dados[6] != "0")
+                                    camionete.VenderVeiculo(dados[6]);
+                                System.Console.WriteLine("chegou");
+                                System.Console.ReadLine();
+                                veiculos.Add(camionete);
+                                break;
+                            case "Moto":
+                                MotoOuTriciculo moto = new MotoOuTriciculo(dados[7],
+                                                                        Convert.ToDecimal(dados[5]),
+                                                                        dados[3],
+                                                                        Convert.ToInt32(dados[8]),
+                                                                        dados[4],
+                                                                        Convert.ToDateTime(dados[2]),
+                                                                        Convert.ToInt32(dados[9]));
+                                if(dados[6] != "0")
+                                    moto.VenderVeiculo(dados[6]);
+                                veiculos.Add(moto);
+                                break;
+                        }
                 }
             }
         }
@@ -112,14 +127,16 @@ public class Armazenamento {
         try{
             this.VerificaPathArmazenamento();
             using(StreamReader sr = new StreamReader(this.pathArmazenamento + "\\transferencias.csv")){
-                var linha = sr.ReadLine();
-                string[] dados = linha.Split(';');
-                Transferencia transferencia = new Transferencia();
-                transferencia.DataCompra = Convert.ToDateTime(dados[0]);
-                transferencia.ValorCompra = Convert.ToDecimal(dados[1]);
-                Veiculo veiculo = veiculos.Find(x => x.NumeroChassi == Convert.ToInt32(dados[2]));
-                transferencia.VeiculoCompra = veiculo;
-                transferencias.Add(transferencia);
+                string? linha;
+                while((linha = sr.ReadLine()) != null){
+                    string[] dados = linha.Split(';');
+                    Transferencia transferencia = new Transferencia();
+                    transferencia.DataCompra = Convert.ToDateTime(dados[0]);
+                    transferencia.ValorCompra = Convert.ToDecimal(dados[1]);
+                    Veiculo? veiculo = veiculos.Find(x => x.NumeroChassi == Convert.ToInt32(dados[2]));
+                    transferencia.VeiculoCompra = veiculo;
+                    transferencias.Add(transferencia);
+                }
             }
         }
         catch(Exception ex){

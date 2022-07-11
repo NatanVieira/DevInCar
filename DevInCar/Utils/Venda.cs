@@ -6,8 +6,8 @@ public static class Venda {
     public static void VendaVeiculo(List<Veiculo> veiculos, List<Transferencia> transferencias){
         Desenho.VendaVeiculoCabecalho();
         System.Console.Write("Nome do veículo: ");
-        string nomeVeiculoVenda = System.Console.ReadLine();
-        Veiculo veiculo = veiculos.Find(x => x.Nome == nomeVeiculoVenda);
+        string? nomeVeiculoVenda = System.Console.ReadLine();
+        Veiculo? veiculo = veiculos.Find(x => x.Nome == nomeVeiculoVenda);
         if(veiculo != null){
             if(veiculo.Cpf == "0"){
                 try{
@@ -24,7 +24,7 @@ public static class Venda {
                     Desenho.VendaVeiculoComSucesso(veiculo.Nome);
                 }
                 catch(Exception ex){
-                    Desenho.ErroAoVender(veiculo.Nome);
+                    Desenho.ErroAoVender($"{veiculo.Nome},{ex.Message}");
                 }
             }
             else

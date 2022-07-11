@@ -4,8 +4,8 @@ namespace DevInCar.Utils;
 public static class Listagem {
 
     public static void listarVericulo(List<Veiculo> veiculos){
-        string escolha = "0";
-        string segundaEscolha = "0";
+        string? escolha = "0";
+        string? segundaEscolha = "0";
         do{
             Desenho.ListagemVeiculosInicial();
             escolha = System.Console.ReadLine();
@@ -40,7 +40,7 @@ public static class Listagem {
         }while(escolha == "1" || escolha == "2" || escolha == "3" || escolha == "4");
     }
 
-    public static void ImprimeLista(string escolha, string tipo, List<Veiculo> veiculos){
+    public static void ImprimeLista(string? escolha, string tipo, List<Veiculo> veiculos){
         switch(escolha){
             case "1":
                 Listagem.ImprimeDisponiveis(tipo, veiculos);
