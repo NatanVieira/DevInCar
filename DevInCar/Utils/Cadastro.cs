@@ -13,7 +13,7 @@ public static class Cadastro {
                         Carro novoCarro = new Carro();
                         Cadastro.InfoBasicaVeiculo(novoCarro, "carro");
                         Cadastro.NovoCarro(novoCarro,"carro");
-                        verificaPlacaVeiculo(novoCarro, veiculos);
+                        VerificaPlacaRepetida(novoCarro, veiculos);
                         veiculos.Add(novoCarro);
                         Desenho.VeiculoCadastradoComSucesso("carro");
                     }
@@ -29,7 +29,7 @@ public static class Cadastro {
                         Camionete novaCamionete = new Camionete();
                         Cadastro.InfoBasicaVeiculo(novaCamionete, "camionete");
                         Cadastro.NovaCamionete(novaCamionete,"camionete");
-                        verificaPlacaVeiculo(novaCamionete, veiculos);
+                        VerificaPlacaRepetida(novaCamionete, veiculos);
                         veiculos.Add(novaCamionete);
                         Desenho.VeiculoCadastradoComSucesso("camionete");
                     }
@@ -48,7 +48,7 @@ public static class Cadastro {
                         MotoOuTriciculo novaMoto = new MotoOuTriciculo();
                         Cadastro.InfoBasicaVeiculo(novaMoto, "moto");
                         Cadastro.NovaMotoOuTriciculo(novaMoto,"moto");
-                        verificaPlacaVeiculo(novaMoto, veiculos);
+                        VerificaPlacaRepetida(novaMoto, veiculos);
                         veiculos.Add(novaMoto);
                         Desenho.VeiculoCadastradoComSucesso("moto ou triciculo");
                     }
@@ -116,10 +116,9 @@ public static class Cadastro {
         System.Console.Write("Capacidade da caçamba em litros: ");
         camionete.CapacidadeCacamba = Convert.ToDouble(System.Console.ReadLine());
     }
-
-    private static void verificaPlacaVeiculo(Veiculo veiculo, List<Veiculo> veiculos){
+    private static void VerificaPlacaRepetida(Veiculo veiculo, List<Veiculo> veiculos){
         Veiculo? veiculoAuxiliar = veiculos.Find(x => x.Placa == veiculo.Placa);
         if(veiculoAuxiliar != null)
-            throw new PlacaRepetidaException($"Placa já existe para veículo: {veiculoAuxiliar.Nome}");        
+            throw new PlacaRepetidaException($"Placa já está registrada para o veículo: {veiculoAuxiliar.Nome}");
     }
 }
