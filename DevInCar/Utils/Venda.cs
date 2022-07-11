@@ -11,9 +11,15 @@ public static class Venda {
         if(veiculo != null){
             if(veiculo.Cpf == "0"){
                 try{
+                    Transferencia transferencia = new Transferencia();
                     Desenho.VendaVeiculoCabecalho();
                     System.Console.Write("CPF do comprador: ");
                     veiculo.Cpf = System.Console.ReadLine();
+                    Desenho.VendaVeiculoCabecalho();
+                    System.Console.Write("Valor de venda:");
+                    transferencia.ValorCompra = Convert.ToDecimal(System.Console.ReadLine());
+                    transferencia.DataCompra = DateTime.Now;
+                    transferencia.VeiculoCompra = veiculo;
                     Desenho.VendaVeiculoComSucesso(veiculo.Nome);
                 }
                 catch(Exception ex){
