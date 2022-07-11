@@ -19,6 +19,7 @@ public class Program {
                     Venda.VendaVeiculo(veiculos);
                     break;
                 case "3":
+                    Listagem.listarVericulo(veiculos);
                     break;
                 default:
                     Desenho.FinalizaPrograma();

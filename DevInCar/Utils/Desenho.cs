@@ -1,3 +1,4 @@
+using DevInCar.Models;
 namespace DevInCar.Utils;
 
 public static class Desenho {
@@ -84,5 +85,45 @@ public static class Desenho {
         System.Console.Clear();
         System.Console.WriteLine($"{nomeVeiculo} já foi vendido, escolha outro veículo.");
         Thread.Sleep(1000);
+    }
+
+    public static void ListagemVeiculosInicial(){
+        System.Console.Clear();
+        System.Console.WriteLine("Escolha o tipo de veículo da listagem:");
+        System.Console.WriteLine("1 - Carros");
+        System.Console.WriteLine("2 - Camionetes");
+        System.Console.WriteLine("3 - Motos/Triciculos");
+        System.Console.WriteLine("4 - Todos");
+        System.Console.WriteLine("0 - Voltar ao menu inicial");
+    }
+
+    public static void ListagemVeiculosSecundaria(string tipoVeiculo){
+        if(tipoVeiculo == "todos")
+            tipoVeiculo = "veiculo";
+        System.Console.Clear();
+        System.Console.WriteLine("Escolha o tipo de listagem que deseja:");
+        System.Console.WriteLine($"1 - {tipoVeiculo}(s) disponiveis");
+        System.Console.WriteLine($"2 - {tipoVeiculo}(s) vendidos");
+        System.Console.WriteLine($"3 - {tipoVeiculo} vendido com maior preço");
+        System.Console.WriteLine($"4 - {tipoVeiculo} vendido com menor preço");
+        System.Console.WriteLine($"5 - Todos");
+    }
+
+    public static void ListagemSemDados(){
+        System.Console.Clear();
+        System.Console.WriteLine("Não há dados para mostrar...");
+        Thread.Sleep(1000);
+    }
+
+    public static void ListagemVeiculos(List<Veiculo> veiculos){
+        System.Console.Clear();
+        System.Console.WriteLine("Listagem de veiculos:");
+        veiculos.ForEach(veiculo => {
+            System.Console.WriteLine("---------------------");
+            System.Console.WriteLine(veiculo.ListarInformacoes());
+            System.Console.WriteLine("---------------------");
+        });
+        System.Console.WriteLine("Aperte qualquer tecla para voltar ao menu...");
+        System.Console.ReadLine();
     }
 }
