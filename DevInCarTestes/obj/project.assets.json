@@ -5999,11 +5999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\DevInCarTestes.csproj",
+      "projectUniqueName": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\DevInCarTestes.csproj",
       "projectName": "DevInCarTestes",
-      "projectPath": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\DevInCarTestes.csproj",
+      "projectPath": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\DevInCarTestes.csproj",
       "packagesPath": "C:\\Users\\natanael.vieira\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\obj\\",
+      "outputPath": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCarTestes\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6024,8 +6024,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {
-              "projectPath": "C:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj"
+            "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj": {
+              "projectPath": "c:\\Users\\natanael.vieira\\Desktop\\DIH\\DevInCar\\DevInCar\\DevInCar.csproj"
             }
           }
         }

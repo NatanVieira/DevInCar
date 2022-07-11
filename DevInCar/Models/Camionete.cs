@@ -2,25 +2,18 @@ namespace DevInCar.Models;
 
 public class Camionete : Veiculo {
 
-    private int numeroDePortas;
-    private double capacidadeCacamba;
+    public int NumeroDePortas {get; set;}
+    public double CapacidadeCacamba {get;set;}
 
-    private string combustivel;
+    public string Combustivel {get;set;}
     
     public Camionete(){
-        this.combustivel = "";
+        this.Combustivel = "";
     }
     public Camionete (string cor, decimal valor, string nome, int potencia, string placa, DateTime DataDeFabricacao, int numeroDePortas, double capacidadeCacamba, string combustivel)
     :base(cor, valor, nome, potencia, placa, DataDeFabricacao){
-        this.numeroDePortas = numeroDePortas;
-        this.capacidadeCacamba = capacidadeCacamba;
-        this.combustivel = combustivel;
+        this.NumeroDePortas = numeroDePortas;
+        this.CapacidadeCacamba = capacidadeCacamba;
+        this.Combustivel = combustivel;
     } 
-
-    public int NumeroDePortas {get{return numeroDePortas;}
-                               set{numeroDePortas = value;}}
-    public double CapacidadeCacamba {get{return capacidadeCacamba;}
-                                     set{capacidadeCacamba = value;}}
-    public string Combustivel {get{return combustivel;}
-                               set{combustivel = value;}}
 }
