@@ -13,8 +13,12 @@ public static class Cadastro {
                         Carro novoCarro = new Carro();
                         Cadastro.InfoBasicaVeiculo(novoCarro, "carro");
                         Cadastro.NovoCarro(novoCarro,"carro");
+                        VerificaPlacaRepetida(novoCarro, veiculos);
                         veiculos.Add(novoCarro);
                         Desenho.VeiculoCadastradoComSucesso("carro");
+                    }
+                    catch(PlacaRepetidaException ex){
+                        Desenho.ErroAoCadastrar(ex.Message);
                     }
                     catch(Exception ex){
                         Desenho.ErroAoCadastrar($"Dados de tipo inválido, {ex.Message}");
@@ -25,10 +29,14 @@ public static class Cadastro {
                         Camionete novaCamionete = new Camionete();
                         Cadastro.InfoBasicaVeiculo(novaCamionete, "camionete");
                         Cadastro.NovaCamionete(novaCamionete,"camionete");
+                        VerificaPlacaRepetida(novaCamionete, veiculos);
                         veiculos.Add(novaCamionete);
                         Desenho.VeiculoCadastradoComSucesso("camionete");
                     }
                     catch(CorNaoPermitidaParaCamioneteException ex){
+                        Desenho.ErroAoCadastrar(ex.Message);
+                    }
+                    catch(PlacaRepetidaException ex){
                         Desenho.ErroAoCadastrar(ex.Message);
                     }
                     catch(Exception ex){
@@ -40,8 +48,12 @@ public static class Cadastro {
                         MotoOuTriciculo novaMoto = new MotoOuTriciculo();
                         Cadastro.InfoBasicaVeiculo(novaMoto, "moto");
                         Cadastro.NovaMotoOuTriciculo(novaMoto,"moto");
+                        VerificaPlacaRepetida(novaMoto, veiculos);
                         veiculos.Add(novaMoto);
                         Desenho.VeiculoCadastradoComSucesso("moto ou triciculo");
+                    }
+                    catch(PlacaRepetidaException ex){
+                        Desenho.ErroAoCadastrar(ex.Message);
                     }
                     catch(Exception ex){
                         Desenho.ErroAoCadastrar($"Dados de tipo inválido, {ex.Message}");
@@ -103,5 +115,11 @@ public static class Cadastro {
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
         System.Console.Write("Capacidade da caçamba em litros: ");
         camionete.CapacidadeCacamba = Convert.ToDouble(System.Console.ReadLine());
+    }
+
+    private static void VerificaPlacaRepetida(Veiculo veiculo, List<Veiculo> veiculos){
+        Veiculo? veiculoAuxiliar = veiculos.Find(x => x.Placa == veiculo.Placa);
+        if(veiculoAuxiliar != null)
+            throw new PlacaRepetidaException($"Placa já está registrada para o veículo: {veiculoAuxiliar.Nome}");
     }
 }
