@@ -104,12 +104,12 @@ public class Armazenamento {
                                 break;
                             case "Moto":
                                 MotoOuTriciculo moto = new MotoOuTriciculo(dados[7],
-                                                                        Convert.ToDecimal(dados[5]),
-                                                                        dados[3],
-                                                                        Convert.ToInt32(dados[8]),
-                                                                        dados[4],
-                                                                        Convert.ToDateTime(dados[2]),
-                                                                        Convert.ToInt32(dados[9]));
+                                                                           Convert.ToDecimal(dados[5]),
+                                                                           dados[3],
+                                                                           Convert.ToInt32(dados[8]),
+                                                                           dados[4],
+                                                                           Convert.ToDateTime(dados[2]),
+                                                                           Convert.ToInt32(dados[9]));
                                 if(dados[6] != "0")
                                     moto.VenderVeiculo(dados[6]);
                                 veiculos.Add(moto);
