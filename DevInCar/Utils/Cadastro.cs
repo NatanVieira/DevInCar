@@ -1,3 +1,4 @@
+using DevInCar.Excecoes;
 using DevInCar.Models;
 namespace DevInCar.Utils;
 public static class Cadastro {
@@ -9,38 +10,41 @@ public static class Cadastro {
             switch(escolha){
                 case "1":
                     try{
-                    Carro novoCarro = new Carro();
-                    Cadastro.InfoBasicaVeiculo(novoCarro, "carro");
-                    Cadastro.NovoCarro(novoCarro,"carro");
-                    veiculos.Add(novoCarro);
-                    Desenho.VeiculoCadastradoComSucesso("carro");
+                        Carro novoCarro = new Carro();
+                        Cadastro.InfoBasicaVeiculo(novoCarro, "carro");
+                        Cadastro.NovoCarro(novoCarro,"carro");
+                        veiculos.Add(novoCarro);
+                        Desenho.VeiculoCadastradoComSucesso("carro");
                     }
                     catch(Exception ex){
-                        Desenho.ErroAoCadastrar("Dados de tipo inválido.");
+                        Desenho.ErroAoCadastrar($"Dados de tipo inválido, {ex.Message}");
                     }
                     break;
                 case "2":
                     try{
-                    Camionete novaCamionete = new Camionete();
-                    Cadastro.InfoBasicaVeiculo(novaCamionete, "camionete");
-                    Cadastro.NovaCamionete(novaCamionete,"camionete");
-                    veiculos.Add(novaCamionete);
-                    Desenho.VeiculoCadastradoComSucesso("camionete");
+                        Camionete novaCamionete = new Camionete();
+                        Cadastro.InfoBasicaVeiculo(novaCamionete, "camionete");
+                        Cadastro.NovaCamionete(novaCamionete,"camionete");
+                        veiculos.Add(novaCamionete);
+                        Desenho.VeiculoCadastradoComSucesso("camionete");
+                    }
+                    catch(CorNaoPermitidaParaCamioneteException ex){
+                        Desenho.ErroAoCadastrar(ex.Message);
                     }
                     catch(Exception ex){
-                        Desenho.ErroAoCadastrar("Dados de tipo inválido.");
+                        Desenho.ErroAoCadastrar($"Dados de tipo inválido, {ex.Message}");
                     }
                     break;
                 case "3":
                     try{
-                    MotoOuTriciculo novaMoto = new MotoOuTriciculo();
-                    Cadastro.InfoBasicaVeiculo(novaMoto, "moto");
-                    Cadastro.NovaMotoOuTriciculo(novaMoto,"moto");
-                    veiculos.Add(novaMoto);
-                    Desenho.VeiculoCadastradoComSucesso("moto ou triciculo");
+                        MotoOuTriciculo novaMoto = new MotoOuTriciculo();
+                        Cadastro.InfoBasicaVeiculo(novaMoto, "moto");
+                        Cadastro.NovaMotoOuTriciculo(novaMoto,"moto");
+                        veiculos.Add(novaMoto);
+                        Desenho.VeiculoCadastradoComSucesso("moto ou triciculo");
                     }
                     catch(Exception ex){
-                        Desenho.ErroAoCadastrar("Dados de tipo inválido.");
+                        Desenho.ErroAoCadastrar($"Dados de tipo inválido, {ex.Message}");
                     }
                     break;
                 case "0":
@@ -59,10 +63,11 @@ public static class Cadastro {
         veiculo.Nome = System.Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
         System.Console.Write("Cor: ");
-        veiculo.Cor = System.Console.ReadLine();
+        string? cor = System.Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
         System.Console.Write("Valor: ");
-        veiculo.Valor = Convert.ToDecimal(Console.ReadLine());
+        decimal valor = Convert.ToDecimal(Console.ReadLine());
+        veiculo.AlterarInformacoes(cor, valor);
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
         System.Console.Write("Placa: ");
         veiculo.Placa = System.Console.ReadLine();

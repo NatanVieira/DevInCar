@@ -12,7 +12,7 @@ public class Program {
         Armazenamento armazenamento = new Armazenamento();
         var escolha = "1";
         armazenamento.RecuperaDadosVeiculos(veiculos);
-        armazenamento.RecuperaDadosTransferencias(transferencias, veiculos);
+        // armazenamento.RecuperaDadosTransferencias(transferencias, veiculos);
         do{
             Desenho.DesenhaMenuInicial();
             escolha = System.Console.ReadLine();
@@ -30,6 +30,8 @@ public class Program {
                     armazenamento.ArmazenaVeiculos(veiculos);
                     armazenamento.ArmazenaTransferencias(transferencias);
                     Desenho.FinalizaPrograma();
+                    veiculos.Clear();
+                    transferencias.Clear();
                     break;
             }
         }while(escolha == "1" || escolha == "2" || escolha == "3");
