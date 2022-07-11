@@ -14,7 +14,7 @@ public static class Venda {
                     Transferencia transferencia = new Transferencia();
                     Desenho.VendaVeiculoCabecalho();
                     System.Console.Write("CPF do comprador: ");
-                    veiculo.Cpf = System.Console.ReadLine();
+                    veiculo.VenderVeiculo(System.Console.ReadLine());
                     Desenho.VendaVeiculoCabecalho();
                     System.Console.Write("Valor de venda:");
                     transferencia.ValorCompra = Convert.ToDecimal(System.Console.ReadLine());
