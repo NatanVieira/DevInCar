@@ -52,4 +52,78 @@ public class Armazenamento {
     private void CriaPathArmazenamento(){
         Directory.CreateDirectory(this.pathArmazenamento);
     }
+
+    public void RecuperaDadosVeiculos(List<Veiculo> veiculos){
+        try{
+            this.VerificaPathArmazenamento();
+            using(StreamReader sr = new StreamReader(this.pathArmazenamento + "\\veiculos.csv")){
+                string linha = sr.ReadLine();
+                string[] dados;
+                dados  = linha.Split(';');
+                switch(dados[0]){
+                    case "Carro":
+                        Carro carro = new Carro(dados[7],
+                                                Convert.ToDecimal(dados[5]),
+                                                dados[3],
+                                                Convert.ToInt32(dados[8]),
+                                                dados[4],
+                                                Convert.ToDateTime(dados[2]),
+                                                Convert.ToInt32(dados[9]),
+                                                Convert.ToBoolean(dados[10]));
+                        if(dados[6] != "")
+                            carro.VenderVeiculo(dados[6]);
+                        veiculos.Add(carro);
+                        break;
+                    case "Camionete":
+                        Camionete camionete = new Camionete(dados[7],
+                                                            Convert.ToDecimal(dados[5]),
+                                                            dados[3],
+                                                            Convert.ToInt32(dados[8]),
+                                                            dados[4],
+                                                            Convert.ToDateTime(dados[2]),
+                                                            Convert.ToInt32(dados[9]),
+                                                            Convert.ToDouble(dados[10]),
+                                                            dados[11]);
+                        if(dados[6] != "")
+                            camionete.VenderVeiculo(dados[6]);
+                        veiculos.Add(camionete);
+                        break;
+                    case "Moto":
+                        MotoOuTriciculo moto = new MotoOuTriciculo(dados[7],
+                                                                   Convert.ToDecimal(dados[5]),
+                                                                   dados[3],
+                                                                   Convert.ToInt32(dados[8]),
+                                                                   dados[4],
+                                                                   Convert.ToDateTime(dados[2]),
+                                                                   Convert.ToInt32(dados[9]));
+                        if(dados[6] != "")
+                            moto.VenderVeiculo(dados[6]);
+                        veiculos.Add(moto);
+                        break;
+                }
+            }
+        }
+        catch(Exception ex){
+            System.Console.WriteLine(ex.Message);
+        }
+    }
+
+    public void RecuperaDadosTransferencias(List<Transferencia> transferencias, List<Veiculo> veiculos){
+        try{
+            this.VerificaPathArmazenamento();
+            using(StreamReader sr = new StreamReader(this.pathArmazenamento + "\\transferencias.csv")){
+                var linha = sr.ReadLine();
+                string[] dados = linha.Split(';');
+                Transferencia transferencia = new Transferencia();
+                transferencia.DataCompra = Convert.ToDateTime(dados[0]);
+                transferencia.ValorCompra = Convert.ToDecimal(dados[1]);
+                Veiculo veiculo = veiculos.Find(x => x.NumeroChassi == Convert.ToInt32(dados[2]));
+                transferencia.VeiculoCompra = veiculo;
+                transferencias.Add(transferencia);
+            }
+        }
+        catch(Exception ex){
+            System.Console.WriteLine(ex.Message);
+        }
+    }
 }
