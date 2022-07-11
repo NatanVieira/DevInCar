@@ -12,7 +12,7 @@ public class Program {
         Armazenamento armazenamento = new Armazenamento();
         var escolha = "1";
         armazenamento.RecuperaDadosVeiculos(veiculos);
-        // armazenamento.RecuperaDadosTransferencias(transferencias, veiculos);
+        armazenamento.RecuperaDadosTransferencias(transferencias, veiculos);
         do{
             Desenho.DesenhaMenuInicial();
             escolha = System.Console.ReadLine();
