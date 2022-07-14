@@ -13,6 +13,7 @@ public static class Cadastro {
                         Carro novoCarro = new Carro();
                         Cadastro.InfoBasicaVeiculo(novoCarro, "carro");
                         Cadastro.NovoCarro(novoCarro,"carro");
+                        novoCarro.FormataInformacoes();
                         VerificaPlacaRepetida(novoCarro, veiculos);
                         veiculos.Add(novoCarro);
                         Desenho.VeiculoCadastradoComSucesso("carro");
@@ -29,6 +30,7 @@ public static class Cadastro {
                         Camionete novaCamionete = new Camionete();
                         Cadastro.InfoBasicaVeiculo(novaCamionete, "camionete");
                         Cadastro.NovaCamionete(novaCamionete,"camionete");
+                        novaCamionete.FormataInformacoes();
                         VerificaPlacaRepetida(novaCamionete, veiculos);
                         veiculos.Add(novaCamionete);
                         Desenho.VeiculoCadastradoComSucesso("camionete");
@@ -48,6 +50,7 @@ public static class Cadastro {
                         MotoOuTriciculo novaMoto = new MotoOuTriciculo();
                         Cadastro.InfoBasicaVeiculo(novaMoto, "moto");
                         Cadastro.NovaMotoOuTriciculo(novaMoto,"moto");
+                        novaMoto.FormataInformacoes();
                         VerificaPlacaRepetida(novaMoto, veiculos);
                         veiculos.Add(novaMoto);
                         Desenho.VeiculoCadastradoComSucesso("moto ou triciculo");
@@ -107,8 +110,8 @@ public static class Cadastro {
 
     public static void NovaCamionete(Camionete camionete, string tipoVeiculo){
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        Console.Write("Combustivel: ");
-        camionete.Combustivel = Console.ReadLine();
+        Console.Write("Diesel[s/n]: ");
+        camionete.Diesel = Console.ReadLine() == "s" ? true : false;
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
         Console.Write("Número de portas: ");
         camionete.NumeroDePortas = Convert.ToInt32(Console.ReadLine());

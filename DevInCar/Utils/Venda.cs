@@ -5,9 +5,10 @@ public static class Venda {
 
     public static void VendaVeiculo(List<Veiculo> veiculos, List<Transferencia> transferencias){
         Desenho.VendaVeiculoCabecalho();
-        Console.Write("Nome do veículo: ");
-        string? nomeVeiculoVenda = Console.ReadLine();
-        Veiculo? veiculo = veiculos.Find(x => x.Nome == nomeVeiculoVenda);
+        Console.Write("Placa do veículo: ");
+        string? placaVeiculoVenda = Console.ReadLine();
+        placaVeiculoVenda = placaVeiculoVenda?.ToUpper();
+        Veiculo? veiculo = veiculos.Find(x => x.Placa == placaVeiculoVenda);
         if(veiculo != null){
             if(veiculo.Cpf == "0"){
                 try{

@@ -21,7 +21,7 @@ public class Armazenamento {
                             break;
                         case "Camionete":
                             Camionete camionete = (Camionete)veiculo;
-                            sw.WriteLine($"Camionete;{camionete.NumeroChassi.ToString()};{camionete.DataDeFabricacao.ToShortDateString()};{camionete.Nome};{camionete.Placa};{camionete.Valor.ToString()};{camionete.Cpf};{camionete.Cor};{camionete.Potencia.ToString()};{camionete.NumeroDePortas.ToString()};{camionete.Combustivel};{camionete.CapacidadeCacamba.ToString()};");
+                            sw.WriteLine($"Camionete;{camionete.NumeroChassi.ToString()};{camionete.DataDeFabricacao.ToShortDateString()};{camionete.Nome};{camionete.Placa};{camionete.Valor.ToString()};{camionete.Cpf};{camionete.Cor};{camionete.Potencia.ToString()};{camionete.NumeroDePortas.ToString()};{camionete.Diesel};{camionete.CapacidadeCacamba.ToString()};");
                             break;
                     }
                 });
@@ -84,6 +84,7 @@ public class Armazenamento {
                                                         Convert.ToBoolean(dados[10]));
                                 if(dados[6] != "0")
                                     carro.VenderVeiculo(dados[6]);
+                                carro.FormataInformacoes();
                                 veiculos.Add(carro);
                                 break;
                             case "Camionete":
@@ -95,11 +96,10 @@ public class Armazenamento {
                                                                     Convert.ToDateTime(dados[2]),
                                                                     Convert.ToInt32(dados[9]),
                                                                     Convert.ToDouble(dados[11]),
-                                                                    dados[10]);
+                                                                    Convert.ToBoolean(dados[10]));
                                 if(dados[6] != "0")
                                     camionete.VenderVeiculo(dados[6]);
-                                Console.WriteLine("chegou");
-                                Console.ReadLine();
+                                camionete.FormataInformacoes();
                                 veiculos.Add(camionete);
                                 break;
                             case "Moto":
@@ -112,6 +112,7 @@ public class Armazenamento {
                                                                            Convert.ToInt32(dados[9]));
                                 if(dados[6] != "0")
                                     moto.VenderVeiculo(dados[6]);
+                                moto.FormataInformacoes();
                                 veiculos.Add(moto);
                                 break;
                         }

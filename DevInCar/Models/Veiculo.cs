@@ -29,7 +29,7 @@ public class Veiculo {
     public void VenderVeiculo(string? cpf){
         this.Cpf = cpf;
     }
-    public string ListarInformacoes() => @$"Informações do Veículo:
+    public virtual string ListarInformacoes() => @$"Informações do Veículo:
 Cor: {this.Cor}
 Valor: {this.Valor.ToString("c")}
 Nome: {this.Nome}
@@ -39,5 +39,12 @@ N. Chassi: {this.NumeroChassi}";
     public virtual void AlterarInformacoes(string? cor, decimal valor){
         this.Cor = cor;
         this.Valor = valor;
+    }
+
+    public virtual void FormataInformacoes(){
+        this.Cor = this.Cor?.ToUpper();
+        this.Cpf = this.Cpf?.ToUpper();
+        this.Nome = this.Nome?.ToUpper();
+        this.Placa = this.Placa?.ToUpper();
     }
 }
