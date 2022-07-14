@@ -5,7 +5,7 @@ public static class Cadastro {
 
     public static void novoVeiculo(List<Veiculo> veiculos){
         Desenho.CadastroNovoVeiculoInicial();
-        var escolha = System.Console.ReadLine();
+        var escolha = Console.ReadLine();
         if(escolha == "1" || escolha == "2" || escolha == "3" || escolha == "0"){
             switch(escolha){
                 case "1":
@@ -71,50 +71,50 @@ public static class Cadastro {
 
     public static void InfoBasicaVeiculo(Veiculo veiculo, string tipoVeiculo){
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Nome: ");
-        veiculo.Nome = System.Console.ReadLine();
+        Console.Write("Nome: ");
+        veiculo.Nome = Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Cor: ");
-        string? cor = System.Console.ReadLine();
+        Console.Write("Cor: ");
+        string? cor = Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Valor: ");
+        Console.Write("Valor: ");
         decimal valor = Convert.ToDecimal(Console.ReadLine());
         veiculo.AlterarInformacoes(cor, valor);
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Placa: ");
-        veiculo.Placa = System.Console.ReadLine();
+        Console.Write("Placa: ");
+        veiculo.Placa = Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Potência: ");
-        veiculo.Potencia = Convert.ToInt32(System.Console.ReadLine());
+        Console.Write("Potência: ");
+        veiculo.Potencia = Convert.ToInt32(Console.ReadLine());
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Data de Fabricação (dd/MM/AAAA): ");
-        veiculo.DataDeFabricacao = Convert.ToDateTime(System.Console.ReadLine());
+        Console.Write("Data de Fabricação (dd/MM/AAAA): ");
+        veiculo.DataDeFabricacao = Convert.ToDateTime(Console.ReadLine());
     }
     public static void NovoCarro(Carro carro,string tipoVeiculo){
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Flex?[s/n]: ");
-        carro.Flex = System.Console.ReadLine() == "s" ? true : false;
+        Console.Write("Flex?[s/n]: ");
+        carro.Flex = Console.ReadLine() == "s" ? true : false;
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Número de portas: ");
-        carro.NumeroDePortas = Convert.ToInt32(System.Console.ReadLine());
+        Console.Write("Número de portas: ");
+        carro.NumeroDePortas = Convert.ToInt32(Console.ReadLine());
     }
 
     public static void NovaMotoOuTriciculo(MotoOuTriciculo moto, string tipoVeiculo){
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Número de rodas: ");
-        moto.NumeroDeRodas= Convert.ToInt32(System.Console.ReadLine());
+        Console.Write("Número de rodas: ");
+        moto.NumeroDeRodas= Convert.ToInt32(Console.ReadLine());
     }
 
     public static void NovaCamionete(Camionete camionete, string tipoVeiculo){
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Combustivel: ");
-        camionete.Combustivel = System.Console.ReadLine();
+        Console.Write("Combustivel: ");
+        camionete.Combustivel = Console.ReadLine();
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Número de portas: ");
-        camionete.NumeroDePortas = Convert.ToInt32(System.Console.ReadLine());
+        Console.Write("Número de portas: ");
+        camionete.NumeroDePortas = Convert.ToInt32(Console.ReadLine());
         Desenho.CadastroInfosCabecalho(tipoVeiculo);
-        System.Console.Write("Capacidade da caçamba em litros: ");
-        camionete.CapacidadeCacamba = Convert.ToDouble(System.Console.ReadLine());
+        Console.Write("Capacidade da caçamba em litros: ");
+        camionete.CapacidadeCacamba = Convert.ToDouble(Console.ReadLine());
     }
 
     private static void VerificaPlacaRepetida(Veiculo veiculo, List<Veiculo> veiculos){

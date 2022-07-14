@@ -15,7 +15,7 @@ public class Program {
         // armazenamento.RecuperaDadosTransferencias(transferencias, veiculos);
         do{
             Desenho.DesenhaMenuInicial();
-            escolha = System.Console.ReadLine();
+            escolha = Console.ReadLine();
             switch(escolha){
                 case "1":
                     Cadastro.novoVeiculo(veiculos);

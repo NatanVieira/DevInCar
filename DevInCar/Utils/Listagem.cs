@@ -8,26 +8,26 @@ public static class Listagem {
         string? segundaEscolha = "0";
         do{
             Desenho.ListagemVeiculosInicial();
-            escolha = System.Console.ReadLine();
+            escolha = Console.ReadLine();
             switch(escolha){
                 case "1":
                     Desenho.ListagemVeiculosSecundaria("carro");
-                    segundaEscolha = System.Console.ReadLine();
+                    segundaEscolha = Console.ReadLine();
                     Listagem.ImprimeLista(segundaEscolha,"Carro", veiculos);
                     break;
                 case "2":
                     Desenho.ListagemVeiculosSecundaria("camionete");
-                    segundaEscolha = System.Console.ReadLine();
+                    segundaEscolha = Console.ReadLine();
                     Listagem.ImprimeLista(segundaEscolha,"Camionete", veiculos);
                     break;
                 case "3":
                     Desenho.ListagemVeiculosSecundaria("moto/triciculo");
-                    segundaEscolha = System.Console.ReadLine();
+                    segundaEscolha = Console.ReadLine();
                     Listagem.ImprimeLista(segundaEscolha,"MotoOuTriciculo", veiculos);
                     break;
                 case "4":
                     Desenho.ListagemVeiculosSecundaria("todos");
-                    segundaEscolha = System.Console.ReadLine();
+                    segundaEscolha = Console.ReadLine();
                     Listagem.ImprimeLista(segundaEscolha,"todos", veiculos);
                     break;
                 case "0":
