@@ -11,22 +11,35 @@ Após esse rápido processo o sistema inicia mostrando o menu inicial para o usu
 como abaixo:
 
 |============== DEV IN CAR ==============|
+
 | 1 - Cadastro novo veículo              |
+
 | 2 - Vender um veículo                  |
+
 | 3 - Listar veículos                    |
+
 |                                        |
+
 |                                        |
+
 | Pressione qualquer tecla para sair...  |
+
 |========================================|
 
 Caso o usuário escolha a opção número um o seguinte menu é apresentado:
 
 Para cadastrar um novo veículo preencha as informações abaixo:
+
 Tipo de veículo:
+
 1 - Carro
+
 2 - Camionete
+
 3 - Moto / Triciculo
+
 0 - Voltar para o menu inicial
+
 
 Se o usuário escolher a opção 1, o sistema pedirá informações de nome, cor,
 valor, placa, potência, data de fabricação, se é flex ou não e o número de portas.
@@ -50,21 +63,33 @@ Já quando o usuário escolhe a opção de listar veículos o usuário é direci
 menu abaixo:
 
 Escolha o tipo de veículo da listagem:
+
 1 - Carros
+
 2 - Camionetes
+
 3 - Motos/Triciculos
+
 4 - Todos
+
 0 - Voltar para o menu incial
+
 
 Após a escolha do tipo de veículo o usuário é direcionado para o menu abaixo se referindo
 ao tipo de veículo escolhido:
 
 Escolha o tipo de listagem que deseja:
+
 1 - Veículos disponíveis
+
 2 - Veículos vendidos
+
 3 - Veículo vendido com maior valor
+
 4 - Veículo vendido com menor valor
+
 5 - Todos
+
 
 Então a listagem é apresentada de acordo com o que o usuário deseja.
 
