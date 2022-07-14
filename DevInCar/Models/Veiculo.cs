@@ -29,9 +29,13 @@ public class Veiculo {
     public void VenderVeiculo(string? cpf){
         this.Cpf = cpf;
     }
-    public string ListarInformacoes(){
-        return $"Informações do Veículo:\nCor:{this.Cor}\nValor: {this.Valor.ToString("c")}\nNome: {this.Nome}\nPlaca: {this.Placa}\nDt. Fabricação: {this.DataDeFabricacao.ToShortDateString()}\nN. Chassi: {this.NumeroChassi}";
-    }
+    public string ListarInformacoes() => @$"Informações do Veículo:
+Cor: {this.Cor}
+Valor: {this.Valor.ToString("c")}
+Nome: {this.Nome}
+Placa: {this.Placa}
+Dt. Fabricação: {this.DataDeFabricacao.ToShortDateString()}
+N. Chassi: {this.NumeroChassi}";
     public virtual void AlterarInformacoes(string? cor, decimal valor){
         this.Cor = cor;
         this.Valor = valor;

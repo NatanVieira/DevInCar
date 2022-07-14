@@ -98,6 +98,8 @@ public class Armazenamento {
                                                                     dados[10]);
                                 if(dados[6] != "0")
                                     camionete.VenderVeiculo(dados[6]);
+                                Console.WriteLine("chegou");
+                                Console.ReadLine();
                                 veiculos.Add(camionete);
                                 break;
                             case "Moto":
@@ -117,7 +119,7 @@ public class Armazenamento {
             }
         }
         catch(Exception ex){
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 
@@ -138,7 +140,7 @@ public class Armazenamento {
             }
         }
         catch(Exception ex){
-            System.Console.WriteLine(ex.Message);
+            Console.WriteLine(ex.Message);
         }
     }
 }
