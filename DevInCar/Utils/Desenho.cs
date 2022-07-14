@@ -6,9 +6,9 @@ public static class Desenho {
     public static void DesenhaMenuInicial(){
         Console.Clear();
         Console.WriteLine("|============== DEV IN CAR ==============|");
-        Console.WriteLine("| 1 - Cadastrar novo carro               |");
-        Console.WriteLine("| 2 - Vender um carro                    |");
-        Console.WriteLine("| 3 - Listar carros                      |");
+        Console.WriteLine("| 1 - Cadastrar novo veículo             |");
+        Console.WriteLine("| 2 - Vender um veículo                  |");
+        Console.WriteLine("| 3 - Listar veículo                     |");
         Console.WriteLine("|                                        |");
         Console.WriteLine("|                                        |");
         Console.WriteLine("| Pressione qualquer tecla para sair     |");
