@@ -11,7 +11,7 @@ Após esse rápido processo o sistema inicia mostrando o menu inicial para o usu
 como abaixo:
 
 |============== DEV IN CAR ==============|</br>
-| 1 - Cadastro novo veículo              |</br>
+|\ 1 - Cadastro novo veículo\ \ \ \ \ \ \ |</br>
 | 2 - Vender um veículo                  |</br>
 | 3 - Listar veículos                    |</br>
 |                                        |</br>
