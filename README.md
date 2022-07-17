@@ -1,6 +1,8 @@
 # DevInCar
 Projeto Avaliativo I - Módulo II - Dev In House - NDD Tech
 
+Para executar o sistema Dev In Car você só precisa ter o SDK .NET instalado em seu sistema e então executar o comando dotnet build dentro da pasta raíz do projeto.
+
 O Dev In Car quando é iniciado começa buscando o diretório DevInCar no diretório C:
 da máquina do usuário, caso ele não existe o sistema cria.
 
